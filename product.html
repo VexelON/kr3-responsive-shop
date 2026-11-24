@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Карточка товара учебного интернет-магазина.">
+    <title>Товар 1 – Учебный интернет-магазин</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script src="js/main.js" defer></script>
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Перейти к основному содержимому</a>
+
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="site-header__logo" href="index.html">ShopProject</a>
+            <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="site-navigation">
+                <span class="visually-hidden">Открыть меню</span>
+                <span class="site-nav__toggle-icon"></span>
+            </button>
+            <nav class="site-nav" id="site-navigation" aria-label="Основная навигация">
+                <ul class="site-nav__list">
+                    <li class="site-nav__item">
+                        <a class="site-nav__link site-nav__link--active" href="index.html">Главная</a>
+                    </li>
+                    <li class="site-nav__item">
+                        <a class="site-nav__link site-nav__link--active" href="catalog.html">Каталог</a>
+                    </li>
+                    <li class="site-nav__item">
+                        <a class="site-nav__link site-nav__link--active" href="product.html">Карточка товара</a>
+                    </li>
+                    <li class="site-nav__item">
+                        <a class="site-nav__link site-nav__link--active" href="order.html">Заявка</a>
+                    </li>
+                    <li class="site-nav__item">
+                        <a class="site-nav__link site-nav__link--active" href="contacts.html">Контакты</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+
+        <nav class="breadcrumbs" aria-label="Хлебные крошки">
+            <a class="breadcrumbs__link" href="index.html">Главная</a>
+            <span class="breadcrumbs__current">Каталог</span>
+            <span class="breadcrumbs__current">Товар 1</span>
+        </nav>
+
+        <section class="section">
+            <h1>Товар 1</h1>
+            <p class="product-card__description">
+                Краткое описание учебного товара. Используется для демонстрации
+                карточки товара в рамках контрольной работы.
+            </p>
+            <p class="product-card__price">Цена: 1000 руб.</p>
+
+            <a class="button button--primary" href="order.html">Оформить заявку</a>
+        </section>
+
+        <section class="section">
+            <h2>Характеристики товара</h2>
+
+            <div class="table-wrapper">
+                <table class="product-table">
+                    <caption>Основные характеристики</caption>
+                    <thead>
+                        <tr>
+                            <th>Параметр</th>
+                            <th>Значение</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Параметр">Категория</td>
+                            <td data-label="Значение">Учебный товар</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Параметр">Цена</td>
+                            <td data-label="Значение">1000 руб.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Параметр">Наличие</td>
+                            <td data-label="Значение">В наличии</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Параметр">Гарантия</td>
+                            <td data-label="Значение">12 месяцев</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Учебный проект. Все права защищены.</p>
+        <p>Дисциплина: фронтенд и бэкенд разработка</p>
+    </footer>
+
+</body>
+</html>

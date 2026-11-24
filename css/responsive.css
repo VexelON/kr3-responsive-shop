@@ -1,0 +1,248 @@
+/* ===================================
+   Responsive styles (Mobile First)
+   =================================== */
+
+
+/* Бургер-меню на мобильном */
+.site-nav__toggle {
+    display: block;
+    margin-left: auto;
+}
+
+.site-nav {
+    display: none; /* Скрываем меню по умолчанию на мобильном */
+    width: 100%;
+}
+
+.site-nav--open {
+    display: block; /* Показываем при клике */
+}
+
+.site-nav__list {
+    flex-direction: column;
+    padding-top: var(--space-sm);
+}
+
+
+/* 1. Базовые правила (убираем скролл) */
+html,
+body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+img,
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* 2. Контейнеры */
+.site-header__inner,
+.hero,
+.section,
+.breadcrumbs,
+.aside-info,
+.site-footer {
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* 3. Шапка и навигация (вертикально) */
+.site-header__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.site-nav__list {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.site-nav__link {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+/* 4. Сетки: мобильная база — одна колонка (жестко) */
+.products-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important; 
+    gap: var(--space-md) !important;
+}
+
+.catalog-layout {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    grid-template-areas: "filters" "products" !important;
+    gap: var(--space-md) !important;
+}
+
+/* 5. Формы */
+.order-form__actions {
+    flex-direction: column;
+}
+
+.order-form__actions .button {
+    width: 100%;
+}
+
+/* 6. Таблица */
+.table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+}
+
+.product-table {
+    min-width: 400px;
+}
+
+/* 7. Модальное окно */
+.order-dialog {
+    width: calc(100% - 24px);
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+
+    /* ===================================
+   Медиазапросы (Планшет и Десктоп)
+   =================================== */
+
+/* Планшет (от 768px) */
+@media (min-width: 768px) {
+    /* Прячем бургер, показываем меню */
+    .site-nav__toggle {
+        display: none;
+    }
+    .site-nav {
+        display: flex !important;
+        width: auto;
+    }
+
+    /* Шапка в строку */
+    .site-header__inner {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .site-nav__list {
+        flex-direction: row;
+        width: auto;
+    }
+
+    .site-nav__link {
+        width: auto;
+    }
+
+    /* Сетка карточек в 2 колонки */
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    /* Каталог */
+    .catalog-layout {
+        grid-template-columns: 1fr !important;
+    }
+    
+    /* Форма в строку */
+    .order-form__actions {
+        flex-direction: row;
+    }
+    .order-form__actions .button {
+        width: auto;
+    }
+}
+
+/* Десктоп (от 1024px) */
+@media (min-width: 1024px) {
+    /* Сетка карточек в 3 колонки */
+    .products-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+
+    /* Каталог: фильтры слева, товары справа */
+    .catalog-layout {
+        grid-template-columns: 260px 1fr !important;
+        grid-template-areas: "filters products" !important;
+    }
+}
+
+
+
+
+
+
+
+/* ===================================
+   Адаптивная таблица (карточки на мобильном)
+   =================================== */
+@media (max-width: 767px) {
+    /* Убираем горизонтальный скролл */
+    .table-wrapper {
+        overflow-x: visible;
+    }
+
+    /* Скрываем заголовок таблицы */
+    .product-table thead {
+        display: none;
+    }
+
+    /* Делаем таблицу блочной */
+    .product-table,
+    .product-table tbody,
+    .product-table tr,
+    .product-table td {
+        display: block;
+        width: 100%;
+        min-width: 0;
+    }
+
+    /* Каждая строка как карточка */
+    .product-table tr {
+        margin-bottom: var(--space-md);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-md);
+        padding: var(--space-md);
+        background-color: var(--color-surface);
+    }
+
+    /* Ячейки в ряд с отступами */
+    .product-table td {
+        padding: var(--space-xs) 0;
+        border: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: var(--space-md);
+    }
+
+    /* Подпись из data-label перед значением */
+    .product-table td::before {
+        content: attr(data-label);
+        font-weight: 700;
+        color: var(--color-muted);
+        flex-shrink: 0;
+    }
+
+    /* Убираем нижнюю границу у последней ячейки */
+    .product-table td:last-child {
+        padding-bottom: 0;
+    }
+    
+    .product-table td:first-child {
+        padding-top: 0;
+    }
+}
+
+.site-nav__toggle:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+}
