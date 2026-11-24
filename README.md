@@ -57,3 +57,6 @@ kr3-responsive-shop/
 - `index.html`: **100 / 100**
 - `catalog.html`: **100 / 100**
 - `order.html`: **100 / 100**
+
+## Ссылка на опубликованный проект
+GitHub Pages: https://vexelon.github.io/kr3-responsive-shop/
